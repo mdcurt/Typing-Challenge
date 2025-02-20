@@ -5,6 +5,7 @@ import { checkTyping } from "./checktyping.js";
 //import timer function
 import { timer } from "./timerscript.js";
 
+
 //export object of radio button values mapped to difficulty level arrays
 export const difficultyLevels = {
   EASY: easyParagraphs,
@@ -12,15 +13,19 @@ export const difficultyLevels = {
   HARD: hardParagraphs
 };
 
+export function getSelectedArray() {
+  const selectedDifficulty = document.querySelector('input[name="difficulty"]:checked');
+  //take variable from above (a string) and extract array variable from radio button map 
+  const difficultyValue = selectedDifficulty.value;
+console.log(selectedDifficulty.value);
+return difficultyLevels[difficultyValue];
+}
 //fetch which radio button is checked and store this value in variable
+
 export function updateSentence() {
-const selectedDifficulty = document.querySelector('input[name="difficulty"]:checked');
-//take variable from above (a string) and extract array variable from radio button map 
-if (selectedDifficulty) {
-const difficultyValue = selectedDifficulty.value;
-const selectedArray = difficultyLevels[difficultyValue];
+const selectedArray = getSelectedArray();
 renderRandomSentence(selectedArray);
-}}
+}
 
 //render HTML with a random sentence from selected array, a textarea, a timer, and a submit button 
 function renderRandomSentence(paragraphsArray) {

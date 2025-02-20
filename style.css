@@ -19,9 +19,15 @@ header {
   justify-content: center;
 }
 
-.level-editor, .submit-style {
+.level-editor, .submit-style, .add {
   display: block;
   margin: 15px;
+  color:white;
+  background-color: black;
+}
+
+.edit, .delete {
+  margin: 5px;
   color:white;
   background-color: black;
 }
@@ -38,4 +44,8 @@ header {
   background-color: black;
   color: white;
   font-size: xx-large;
+}
+
+.prompt {
+  width: fit-content;
 }
