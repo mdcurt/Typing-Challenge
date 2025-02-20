@@ -1,0 +1,35 @@
+h1 {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  align-content: flex-end;
+
+}
+
+header {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.timer-button, .level-editor {
+  display: block;
+  margin: 15px;
+  color:white;
+  background-color: black;
+}
+.sentences-js {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  
+}

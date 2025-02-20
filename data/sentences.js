@@ -1,4 +1,4 @@
-const easyParagraphs = [
+export const easyParagraphs = [
   { id: 1, text: "The quick brown fox jumps over the lazy dog." },
   { id: 2, text: "Typing is a useful skill for work and play." },
   { id: 3, text: "Practice makes perfect, so keep going!" },
@@ -11,7 +11,7 @@ const easyParagraphs = [
   { id: 10, text: "A simple sentence can still tell a story." }
 ];
 
-const mediumParagraphs = [
+export const moderateParagraphs = [
   { id: 1, text: "Technology is rapidly changing the way we live and work." },
   { id: 2, text: "Typing efficiently requires practice and proper finger placement." },
   { id: 3, text: "Creativity and logic go hand in hand in problem-solving." },
@@ -24,7 +24,7 @@ const mediumParagraphs = [
   { id: 10, text: "Learning from mistakes is an important part of personal growth." }
 ];
 
-const hardParagraphs = [
+export const hardParagraphs = [
   { id: 1, text: "In the ever-evolving landscape of artificial intelligence, breakthroughs in deep learning architectures continue to push the boundaries of what machines can accomplish." },
   { id: 2, text: "The intricate complexities of quantum computing challenge traditional notions of binary processing, introducing probabilistic states that redefine computational efficiency." },
   { id: 3, text: "Linguistic nuances and contextual semantics pose significant challenges in natural language processing, requiring sophisticated algorithms to achieve human-like understanding." },

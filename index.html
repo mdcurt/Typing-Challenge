@@ -7,11 +7,45 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="typing-header"></header>
+    <h1>TYPING TEST</h1>
+    <header>
+      <button class="timer-button">Start Timer</button>
+      <button class="level-editor">Level Editor</button>
+    </header>
     <main class="main">
-      <div class="sentences-js"></div>
+      <div class="sentences-js">Select a Difficulty to Play</div>
+      <footer class="typing-header">
+        <input
+          class="Easy"
+          type="radio"
+          id="easy"
+          name="difficulty"
+          value="EASY"
+          checked="checked"
+        />
+        <label for="easy" class="toggler">Easy</label>
+        <input
+          class="toggler"
+          type="radio"
+          id="moderate"
+          name="difficulty"
+          value="MODERATE"
+        />
+        <label for="moderate" class="toggler">Moderate</label>
+        <input
+          class="toggler"
+          type="radio"
+          id="hard"
+          name="difficulty"
+          value="HARD"
+        />
+        <label for="hard" class="toggler">Hard</label>
+      </footer>
     </main>
-    <script src="scripts/gameloader.js"></script>
+    <script type="module" src="data/sentences.js"></script>
+    <script type="module" src="scripts/gameloader.js"></script>
     <script src="scripts/scripts.js"></script>
+    <script type="module" src="scripts/checktyping.js"></script>
+    <script src="scripts/initial.js"></script>
   </body>
 </html>
