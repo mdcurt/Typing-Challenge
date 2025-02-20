@@ -1,21 +1,11 @@
-/*function renderSentences(easyParagraphs) {
-  const sentencesHTML = easyParagraphs.map((sentences)=> `
-  <div class="sentence-container">
-  ${sentences.text}
-  </div>
-  `).join('');
-
-const sentencesjs = document.querySelector('.sentences-js');
-  sentencesjs.innerHTML = sentencesHTML
-}
-renderSentences(easyParagraphs); */
-
 //import all three difficulty level arrays from data/sentences.js
 import { easyParagraphs, moderateParagraphs, hardParagraphs} from "../data/sentences.js";
+//import dynamic typing verifier
 import { checkTyping } from "./checktyping.js";
+//import timer function
 import { timer } from "./timerscript.js";
 
-//map radio button values to difficulty level arrays
+//export object of radio button values mapped to difficulty level arrays
 export const difficultyLevels = {
   EASY: easyParagraphs,
   MODERATE: moderateParagraphs,
@@ -23,7 +13,7 @@ export const difficultyLevels = {
 };
 
 //fetch which radio button is checked and store this value in variable
-function updateSentence() {
+export function updateSentence() {
 const selectedDifficulty = document.querySelector('input[name="difficulty"]:checked');
 //take variable from above (a string) and extract array variable from radio button map 
 if (selectedDifficulty) {
@@ -32,7 +22,7 @@ const selectedArray = difficultyLevels[difficultyValue];
 renderRandomSentence(selectedArray);
 }}
 
-//render HTML with random sentence from an aaray as a parameter. Also render a textarea
+//render HTML with a random sentence from selected array, a textarea, a timer, and a submit button 
 function renderRandomSentence(paragraphsArray) {
   const randomIndex = Math.floor(Math.random() * paragraphsArray.length);
 
@@ -53,12 +43,13 @@ const randomSentence =paragraphsArray[randomIndex];
         rows="10"
        )"
       ></textarea>
+      <button type="submit" id="js-submit-typed" class="submit-style">Submit</button>
 
       <p id="timer-display"></p>`;
 
   const sentencesjs = document.querySelector('.sentences-js');
   sentencesjs.innerHTML = sentenceHTML;
-
+//call typing checker with each typed input in the generated textarea.  Also check if timer is running.  If not, call timer function.
   const textarea = document.getElementById("prompt");
   textarea.addEventListener("input", (event) => {
 checkTyping(event, randomSentence);
@@ -68,9 +59,8 @@ if (!timerText.innerHTML) {
 }
   });
   }
-
+//Check to see if user has checked a different difficulty level.  If so, update sentence accordingly. 
 document.querySelectorAll('input').forEach(radio => {
 radio.addEventListener('change', updateSentence);
 });
-/*renderRandomSentence(selectedArray);*/
 updateSentence();
