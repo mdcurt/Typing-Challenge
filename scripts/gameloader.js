@@ -13,6 +13,7 @@ renderSentences(easyParagraphs); */
 //import all three difficulty level arrays from data/sentences.js
 import { easyParagraphs, moderateParagraphs, hardParagraphs} from "../data/sentences.js";
 import { checkTyping } from "./checktyping.js";
+import { timer } from "./timerscript.js";
 
 //map radio button values to difficulty level arrays
 export const difficultyLevels = {
@@ -50,8 +51,10 @@ const randomSentence =paragraphsArray[randomIndex];
         id="prompt"
         cols="30"
         rows="10"
-        oninput="checkTyping(event, '${randomSentence}')"
-      ></textarea>`;
+       )"
+      ></textarea>
+
+      <p id="timer-display"></p>`;
 
   const sentencesjs = document.querySelector('.sentences-js');
   sentencesjs.innerHTML = sentenceHTML;
@@ -59,8 +62,12 @@ const randomSentence =paragraphsArray[randomIndex];
   const textarea = document.getElementById("prompt");
   textarea.addEventListener("input", (event) => {
 checkTyping(event, randomSentence);
-  });
+const timerText = document.getElementById("timer-display");
+if (!timerText.innerHTML) {
+  timer();
 }
+  });
+  }
 
 document.querySelectorAll('input').forEach(radio => {
 radio.addEventListener('change', updateSentence);

@@ -19,7 +19,7 @@ header {
   justify-content: center;
 }
 
-.timer-button, .level-editor {
+.level-editor {
   display: block;
   margin: 15px;
   color:white;
@@ -32,4 +32,10 @@ header {
   justify-content: space-between;
   align-items: center;
   
+}
+
+#timer-display {
+  background-color: black;
+  color: white;
+  font-size: xx-large;
 }
