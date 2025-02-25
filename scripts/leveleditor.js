@@ -5,19 +5,18 @@ function renderLevelEditor() {
 const selectedArray = getSelectedArray();
 
 const levelEditorHTML = selectedArray.map((sentence)=> `
-<div class="editable-sentence-container> 
-<div class="sentence">${sentence.text} </div>
-<button class="edit">Edit
+<textarea name="updateSentence" id="updateSentence" cols="30" rows="10">${sentence.text}</textarea>
+<button class="edit">Update
 </button>
 <button class="delete">Delete
 </button>
-</div>
-
 `);
 
-levelEditorHTML.push(`<button class="add">Add Sentence</button>`);
+levelEditorHTML.push(`<textarea name="addSentence" id="addSentence" cols="30" rows="10"></textarea>
+<button class="add">Add Sentence</button>
+`);
 const levelEditorSentences = document.querySelector('.sentences-js');
-      levelEditorSentences.innerHTML = levelEditorHTML;
+      levelEditorSentences.innerHTML = levelEditorHTML.join(''); // UPDATED
 }
   levelEditorToggle.addEventListener("click", levelEditor)
   function levelEditor() {

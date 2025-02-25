@@ -1,6 +1,15 @@
+body {
+  background-color: rgb(249, 231, 132);
+  color: rgb(25, 25, 25); 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 h1 {
+  font-family: 'Franklin Gothic Medium','Arial Narrow', Arial, sans-serif;
+  color: rgb(229, 143, 101);
   display: flex;
-  position: relative;
+  flex-direction: column;
+  position: fixed;
   justify-content: center;
 }
 
@@ -22,14 +31,16 @@ header {
 .level-editor, .submit-style, .add {
   display: block;
   margin: 15px;
-  color:white;
-  background-color: black;
+  color:rgb(241, 232, 184);
+  background-color: rgb(208, 83, 83);
+  border-radius: 10px;
 }
 
 .edit, .delete {
   margin: 5px;
-  color:white;
-  background-color: black;
+  color: rgb(241, 232, 184);
+  background-color: rgb(208, 83, 83) ;
+  border-radius: 10px;
 }
 .sentences-js {
   display: flex;
@@ -41,8 +52,8 @@ header {
 }
 
 #timer-display {
-  background-color: black;
-  color: white;
+  background-color: rgb(25, 25, 25);
+  color: rgb(241, 232, 184);
   font-size: xx-large;
 }
 
