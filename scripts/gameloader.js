@@ -56,14 +56,16 @@ const randomSentence =paragraphsArray[randomIndex];
   sentencesjs.innerHTML = sentenceHTML;
 //call typing checker with each typed input in the generated textarea.  Also check if timer is running.  If not, call timer function.
   const textarea = document.getElementById("prompt");
+  let timerStarted = false;
+
   textarea.addEventListener("input", (event) => {
-checkTyping(event, randomSentence);
-const timerText = document.getElementById("timer-display");
-if (!timerText.innerHTML) {
-  timer();
-}
+    if (!timerStarted) {
+      timer();
+      timerStarted = true;
+    }
+    checkTyping(event, randomSentence);
   });
-  }
+}
 //Check to see if user has checked a different difficulty level.  If so, update sentence accordingly. 
 document.querySelectorAll('input').forEach(radio => {
 radio.addEventListener('change', updateSentence);

@@ -19,7 +19,7 @@ export function checkTyping(event, sentence) {
   const modalText = document.getElementById("modalText");
   const closeModal = document.getElementsByClassName("close")[0];
 
-  modalText.textContent = "You typed " + wordsPerMinute + " words per minute!";
+  modalText.textContent = "YOU TYPED " + wordsPerMinute + " WORDS PER MINUTE!";
   modal.style.display = "block";
 
   // Close the modal when the user clicks on <span> (x)
