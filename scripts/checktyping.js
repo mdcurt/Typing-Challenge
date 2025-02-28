@@ -13,10 +13,29 @@ export function checkTyping(event, sentence) {
       const currentSentence = wordCount(sentence.text);
       const wordsPerMinute = Math.floor(currentSentence / (elapsedTime / 60000));
       console.log(elapsedTime, currentSentence, wordsPerMinute);
-      alert("You typed " + wordsPerMinute + " words per minute!");
+
+      // Display the modal
+  const modal = document.getElementById("resultModal");
+  const modalText = document.getElementById("modalText");
+  const closeModal = document.getElementsByClassName("close")[0];
+
+  modalText.textContent = "YOU TYPED " + wordsPerMinute + " WORDS PER MINUTE!";
+  modal.style.display = "block";
+
+  // Close the modal when the user clicks on <span> (x)
+  closeModal.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Close the modal when the user clicks anywhere outside of the modal
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
       updateSentence();
       break;
-      /* scoreModal(sentence.text); */
+
     } else {
     if (i < userInput.length) {
       if (userInput[i] === sentence.text[i]) {
