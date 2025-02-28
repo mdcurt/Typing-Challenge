@@ -46,9 +46,9 @@ const randomSentence =paragraphsArray[randomIndex];
         id="prompt"
         cols="30"
         rows="10"
-       )"
+       )
       ></textarea>
-      <button type="submit" id="js-submit-typed" class="submit-style">Submit</button>
+     <br>
 
       <p id="timer-display"></p>`;
 

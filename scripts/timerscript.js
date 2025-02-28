@@ -1,9 +1,13 @@
+export let intervalId;
+let startTime;
+
 export function timer() {
   let time = 0;
+  startTime = Date.now();
 
   const timerEl = document.getElementById('timer-display');
 
-  setInterval(updatedTimer, 1000);
+  intervalId = setInterval(updatedTimer, 1000);
 
   function updatedTimer() {
     const minutes = Math.floor(time / 60);
@@ -14,5 +18,10 @@ export function timer() {
     timerEl.innerHTML = `${minutes}:${seconds}`;
     time++;
   }
+}
 
-  }
+export function stopTimer(intervalId) {
+  clearInterval(intervalId);
+  const elapsedTime = Date.now() - startTime;
+  return elapsedTime;
+}
