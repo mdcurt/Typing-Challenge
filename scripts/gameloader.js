@@ -5,6 +5,20 @@ import { checkTyping } from "./checktyping.js";
 //import timer function
 import { timer } from "./timerscript.js";
 
+// simple click noise when typing
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+function playClickSound() {
+  const oscillator = audioCtx.createOscillator();
+  const gainNode = audioCtx.createGain();
+  oscillator.type = "square";
+  oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime);
+  gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+  oscillator.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+  oscillator.start();
+  oscillator.stop(audioCtx.currentTime + 0.02);
+}
+
 
 //export object of radio button values mapped to difficulty level arrays
 export const difficultyLevels = {
@@ -64,6 +78,7 @@ const randomSentence =paragraphsArray[randomIndex];
       timerStarted = true;
     }
     checkTyping(event, randomSentence);
+    playClickSound();
   });
 }
 //Check to see if user has checked a different difficulty level.  If so, update sentence accordingly. 
